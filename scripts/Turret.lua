@@ -2,12 +2,11 @@ require("scripts/Arrow")
 require("scripts/globals")
 Turret = {}
 
-function Turret:new(_sprite, _x, _y, _speedY)
+function Turret:new(_sprite, _x, _y)
   local o = {
     sprite = _sprite,
     x = _x,
     y = _y,
-    speedY =  _speedY,
     angle = 0,
     width = _sprite:getWidth(),
     height = _sprite:getHeight(),

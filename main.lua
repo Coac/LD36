@@ -28,7 +28,7 @@ function love.load()
   --arrow = Arrow:new(300, 300, 10, 2)
   train = Train:new()
   enemyManager = EnemyManager:new()
-  turret = Turret:new(lg.newImage(imagesFolder .. "enemy.png"), 600, 400, 10, 2, 2)
+  turret = Turret:new(lg.newImage(imagesFolder .. "turret.png"), 600, 400, 10, 2, 2)
 
   lifeBar = LifeBar:new(100, 300, 20, 100, 20)
 end
