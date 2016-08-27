@@ -2,19 +2,18 @@ require("scripts/globals")
 
 Enemy = {}
 
-function Enemy:new(_sprite, _x, _y,_speedY, _speedX,_angle)
+function Enemy:new(_sprite, _x, _y, _speed)
   local o = {
     sprite = _sprite,
     x = _x,
     y = _y,
-    speedY =  _speedY,
-    speedX =  _speedX,
-    angle =  _angle,
+    speed =  _speed,
+    angle =  math.angle(_x, _y, width_window/2, height_window/2),
     coll = HC.rectangle(_x, _y, _sprite:getWidth(), _sprite:getHeight()),
     width = _sprite:getWidth(),
     height = _sprite:getHeight()
    }
-   o.coll:rotate(_angle)
+   o.coll:rotate(o.angle)
 
    setmetatable(o, self)
    self.__index = self
@@ -22,8 +21,8 @@ function Enemy:new(_sprite, _x, _y,_speedY, _speedX,_angle)
 end
 
 function Enemy:update(dt)
-  self.x = self.x + self.speedX * dt * math.cos(self.angle)
-  self.y = self.y + self.speedY * dt * math.sin(self.angle)
+  self.x = self.x + self.speed * dt * math.cos(self.angle)
+  self.y = self.y + self.speed * dt * math.sin(self.angle)
 
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do

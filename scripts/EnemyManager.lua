@@ -7,8 +7,8 @@ function EnemyManager:new()
     local enemyImage = lg.newImage(imagesFolder .. "enemy.png")
   local o = {
     enemies = {
-      Enemy:new(enemyImage, 300, 300, 10, 2, 2),
-      Enemy:new(enemyImage, 100, 100, 10, 2, 2)
+      Enemy:new(enemyImage, 300, 300, 10, 2),
+      Enemy:new(enemyImage, 100, 100, 10, 2)
     }
    }
   setmetatable(o, self)
