@@ -1,5 +1,3 @@
-local lg = love.graphics
-local lk = love.keyboard
 require("scripts/globals")
 
 Numerobis = {}

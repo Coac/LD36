@@ -1,4 +1,3 @@
-local lg = love.graphics
 require("scripts/globals")
 
 Arrow = {}

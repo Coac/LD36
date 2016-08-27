@@ -1,4 +1,4 @@
-local lg = love.graphics
+require("scripts/globals")
 require("scripts/Background")
 require("scripts/Numerobis")
 require("scripts/Arrow")

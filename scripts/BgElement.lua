@@ -1,5 +1,3 @@
-local lg = love.graphics
-
 BgElement = {}
 
 function BgElement:new(_sprite, _x, _y, _speedY)
