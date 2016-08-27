@@ -7,7 +7,7 @@ function Train:new ()
   o = {
     sprite = spritee,
     x = width_window / 2,
-    y = 0,
+    y = height_window / 2,
     width = spritee:getWidth(),
     height = spritee:getHeight()
   }
@@ -18,7 +18,5 @@ function Train:new ()
 end
 
 function Train:draw()
-  for i = 0,5,1 do
-    lg.draw(self.sprite, self.x, self.y + i * self.height);
-  end
+    lg.draw(self.sprite, self.x, self.y, 0, 1, 1, self.width/2, self.height/2);
 end
