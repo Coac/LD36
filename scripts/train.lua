@@ -1,5 +1,3 @@
-require('love.graphics')
-
 local train = {}
 
 function train.load ()
