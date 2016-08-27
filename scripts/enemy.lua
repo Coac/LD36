@@ -1,6 +1,6 @@
 require("scripts/globals")
 
-local enemy = {}
+local Enemy = {}
 
 function Enemy:new(_sprite, _x, _y, _speedY)
   o = {
@@ -15,7 +15,7 @@ function Enemy:new(_sprite, _x, _y, _speedY)
 end
 
 
-function enemy.load ()
+function Enemy.load ()
   local trainImage = love.graphics.newImage(imagesFolder .. 'enemy.png')
 end
 
