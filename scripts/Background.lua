@@ -1,10 +1,11 @@
 local lg = love.graphics
 require("scripts/BgElement")
+require("scripts/globals")
 
 Background = {}
 
 function Background:new()
-    bgImg = love.graphics.newImage("assets/images/test.png")
+    bgImg = lg.newImage(imagesFolder .. "test.png")
   o = {
     elems = {
       BgElement:new(bgImg, 0, 50, 50),
