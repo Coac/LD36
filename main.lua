@@ -1,4 +1,4 @@
-local lg=love.graphics
+local lg = love.graphics
 
 function love.load()
   testImg = lg.newImage("assets/images/test.png")
