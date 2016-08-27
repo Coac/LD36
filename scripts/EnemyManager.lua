@@ -15,6 +15,12 @@ function EnemyManager:new()
   self.__index = self
   return o
 end
+function  EnemyManager:add(enemy)
+  table.insert(self.enemies,enemy)
+end
+function  EnemyManager:remove(i)
+  table.remove(self.enemies,i)
+end
 
 function EnemyManager:update(dt)
   for i, enemy in ipairs(self.enemies) do
