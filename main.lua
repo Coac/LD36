@@ -37,7 +37,6 @@ function love.draw()
   CScreen.apply()
 
   background:draw()
-  numerobis:draw()
   train:draw()
   enemyManager:draw()
   lifeBar:draw()
@@ -46,6 +45,7 @@ function love.draw()
     obj:draw()
   end
 
+  numerobis:draw()
   CScreen.cease()
 end
 
