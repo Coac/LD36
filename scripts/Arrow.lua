@@ -25,13 +25,13 @@ function Arrow:update(dt)
   self.x = self.x + self.speed * dt * math.cos(self.angle)
 	self.y = self.y + self.speed * dt * math.sin(self.angle)
 
+  self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
     print("COLLISION")
   end
-  self.coll:moveTo(self.x, self.y)
 end
 
 function Arrow:draw()
-  lg.draw(self.sprite, self.x, self.y, self.angle, 1, 1, self.width/2, self.height/2);
+  lg.draw(self.sprite, self.x, self.y, self.angle, 1, 1, self.width/2, self.height/2)
   self.coll:draw("fill")
 end
