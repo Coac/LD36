@@ -44,6 +44,9 @@ function love.draw()
   enemyManager:draw()
   lifeBar:draw()
   turret:draw()
+  for i, obj in ipairs(objectsToDraw) do
+    obj:draw()
+  end
 
   CScreen.cease()
 end
@@ -59,6 +62,9 @@ function love.update(dt)
   arrow:update(dt)
   enemyManager:update(dt)
   turret:update(dt)
+  for i, obj in ipairs(objectsToUpdate) do
+    obj:update(dt)
+  end
 
   if lk.isDown("up") then
      lifeBar:takeDamage(1)

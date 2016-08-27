@@ -17,3 +17,6 @@ width_window = 1280
 height_window = 720
 height_enemy = 100
 width_enemy = 100
+
+objectsToDraw = {}
+objectsToUpdate = {}

@@ -1,3 +1,5 @@
+require("scripts/Arrow")
+require("scripts/globals")
 Turret = {}
 
 function Turret:new(_sprite, _x, _y, _speedY)
@@ -8,7 +10,8 @@ function Turret:new(_sprite, _x, _y, _speedY)
     speedY =  _speedY,
     angle = 0,
     width = _sprite:getWidth(),
-    height = _sprite:getHeight()
+    height = _sprite:getHeight(),
+    time = 0
    }
   setmetatable(o, self)
   self.__index = self
@@ -19,6 +22,14 @@ function Turret:update(dt)
   local enemy = enemyManager:getNearestEnemy(self.x, self.y)
   if enemy ~= nil then
     self.angle = math.atan2(enemy.y-self.y, enemy.x-self.x)
+  end
+
+  self.time = self.time + dt
+  if self.time > 2 then
+    self.time = 0
+    local arrow = Arrow:new(self.x, self.y, 300, self.angle)
+    table.insert(objectsToDraw, arrow)
+    table.insert(objectsToUpdate, arrow)
   end
 end
 
