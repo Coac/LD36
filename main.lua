@@ -2,6 +2,8 @@ local lg = love.graphics
 require("scripts/Background")
 
 function love.load()
+  love.window.setTitle("LD36")
+
   testImg = lg.newImage("assets/images/test.png")
   background = Background:new()
 end
@@ -14,7 +16,7 @@ function love.draw()
   lg.rectangle('fill', 0, 0, 40, 40)
   lg.draw(canvas, 0, 0, 0)
   lg.draw(testImg, 50, 50)
-  
+
   background:draw()
 
 end
