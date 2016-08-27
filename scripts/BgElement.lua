@@ -2,12 +2,12 @@ local lg = love.graphics
 
 BgElement = {}
 
-function BgElement:new(_sprite, _x, _y, _speedX)
+function BgElement:new(_sprite, _x, _y, _speedY)
   o = {
-    sprite = _sprite
-    x = _x
-    y = _y
-    speedX =  _speedX
+    sprite = _sprite,
+    x = _x,
+    y = _y,
+    speedY =  _speedY
    }
   setmetatable(o, self)
   self.__index = self
@@ -15,9 +15,9 @@ function BgElement:new(_sprite, _x, _y, _speedX)
 end
 
 function BgElement:update(dt)
-  self.x = self.x + (self.speedX * dt)
+  self.y = self.y + (self.speedY * dt)
 end
 
 function BgElement:draw()
-  lg.draw(self.sprite, self._x, self._y);
+  lg.draw(self.sprite, self.x, self.y);
 end
