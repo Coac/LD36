@@ -1,6 +1,6 @@
 require("scripts/globals")
 
-local Enemy = {}
+Enemy = {}
 
 function Enemy:new(_sprite, _x, _y,_speedY, _speedX,_angle)
   local o = {
@@ -24,5 +24,3 @@ end
 function Enemy:draw()
   lg.draw(self.sprite, self.x, self.y, self.angle);
 end
-
-return enemy

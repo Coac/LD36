@@ -3,13 +3,15 @@ require("scripts/globals")
 Train = {}
 
 function Train:new ()
+  spritee = lg.newImage(imagesFolder .. "train.png");
   o = {
-    sprite = lg.newImage(imagesFolder .. "train.png"),
+    sprite = spritee,
     x = width_window / 2,
     y = 0,
-    width = 32,
-    height = 32
+    width = spritee:getWidth(),
+    height = spritee:getHeight()
   }
+
   setmetatable(o, self)
   self.__index = self
   return o

@@ -18,13 +18,13 @@ function Background:new()
 end
 
 function Background:update(dt)
-  for i = 1, table.getn(self.elems) do
-    self.elems[i]:update(dt)
+  for i, elem in ipairs(self.elems) do
+    elem:update(dt)
   end
 end
 
 function Background:draw()
-  for i = 1, table.getn(self.elems) do
-    self.elems[i]:draw()
+  for i, elem in ipairs(self.elems) do
+    elem:draw()
   end
 end
