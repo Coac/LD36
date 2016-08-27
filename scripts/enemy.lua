@@ -3,7 +3,7 @@ require("scripts/globals")
 local Enemy = {}
 
 function Enemy:new(_sprite, _x, _y,_speedY, _speedX,_angle)
-  o = {
+  local o = {
     sprite = _sprite,
     x = _x,
     y = _y,

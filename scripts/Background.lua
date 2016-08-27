@@ -5,8 +5,8 @@ require("scripts/globals")
 Background = {}
 
 function Background:new()
-    bgImg = lg.newImage(imagesFolder .. "test.png")
-  o = {
+    local bgImg = lg.newImage(imagesFolder .. "test.png")
+  local o = {
     elems = {
       BgElement:new(bgImg, 0, 50, 50),
       BgElement:new(bgImg, 0, 100, 100)
