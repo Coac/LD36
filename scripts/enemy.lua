@@ -2,12 +2,13 @@ require("scripts/globals")
 
 local Enemy = {}
 
-function Enemy:new(_sprite, _x, _y, _speedY,_angle)
+function Enemy:new(_sprite, _x, _y,_speedY, _speedX,_angle)
   o = {
     sprite = _sprite,
     x = _x,
     y = _y,
-    speedY =  _speedY
+    speedY =  _speedY,
+    speedX =  _speedX,
     angle =  _angle
    }
   setmetatable(o, self)
@@ -16,8 +17,8 @@ function Enemy:new(_sprite, _x, _y, _speedY,_angle)
 end
 
 function Enemy:update(dt)
-  self.x = self.x + self.speed * dt * math.cos(self.angle)
-  self.y = self.y + self.speed * dt * math.sin(self.angle)
+  self.x = self.x + self.speedX * dt * math.cos(self.angle)
+  self.y = self.y + self.speedY * dt * math.sin(self.angle)
 end
 
 function Enemy:draw()

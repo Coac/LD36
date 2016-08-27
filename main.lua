@@ -2,7 +2,6 @@ local lg = love.graphics
 require("scripts/Background")
 require("scripts/Numerobis")
 require("scripts/Arrow")
-require("scripts/Enemy")
 
 
 
@@ -12,7 +11,6 @@ function love.load()
   background = Background:new()
   numerobis = Numerobis:new(100, 100, 300)
   arrow = Arrow:new(300, 300, 10, 2)
-  enemy = Enemy:new(100, 50, 4, 3)
 
 end
 
@@ -20,7 +18,6 @@ function love.draw()
   background:draw()
   numerobis:draw()
   arrow:draw()
-  enemy:draw()
 end
 
 
