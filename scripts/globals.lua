@@ -8,6 +8,7 @@ lg = love.graphics
 lk = love.keyboard
 lw = love.window
 
+HC = require("dependencies/HardonCollider")
 
 assetsFolder = 'assets'
 imagesFolder = assetsFolder .. '/images/'
