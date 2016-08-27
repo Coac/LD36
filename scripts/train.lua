@@ -1,9 +1,9 @@
-require('love.graphics')
+require("scripts/globals")
 
 local train = {}
 
 function train.load ()
-  local trainImage = love.graphics.newImage(imagesFolder .. 'train')
+  local trainImage = lg.newImage(imagesFolder .. '/train.png')
 end
 
 return train
