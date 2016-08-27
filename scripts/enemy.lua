@@ -1,3 +1,5 @@
+require("scripts/globals")
+
 local enemy = {}
 
 function enemy.load ()

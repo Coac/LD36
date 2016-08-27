@@ -1,2 +1,2 @@
-assetsFolder = '../assets'
-imagesFolder = assetsFolder .. '/images'
+assetsFolder = 'assets'
+imagesFolder = assetsFolder .. '/images/'

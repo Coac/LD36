@@ -1,3 +1,5 @@
+require("scripts/globals")
+
 local train = {}
 
 function train.load ()
