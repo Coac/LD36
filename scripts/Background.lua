@@ -4,10 +4,10 @@ require("scripts/globals")
 Background = {}
 
 function Background:new()
-  bgImg = lg.newImage(imagesFolder .. "test.png")
+  bgImg = lg.newImage(imagesFolder .. "background.png")
   o = {
     elems = {
-      BgElement:new(bgImg, 0, 50, 50),
+      BgElement:new(bgImg, 0, 0, 0),
       BgElement:new(bgImg, 0, 100, 100)
     }
 
