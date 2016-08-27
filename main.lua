@@ -1,7 +1,6 @@
 require("scripts/globals")
 require("scripts/Background")
 require("scripts/Numerobis")
-require("scripts/Arrow")
 require("scripts/Train")
 require("scripts/EnemyManager")
 require("scripts/LifeBar")
@@ -39,7 +38,6 @@ function love.draw()
 
   background:draw()
   numerobis:draw()
-  --arrow:draw()
   train:draw()
   enemyManager:draw()
   lifeBar:draw()
@@ -59,7 +57,6 @@ end
 function love.update(dt)
   background:update(dt)
   numerobis:update(dt)
-  --arrow:update(dt)
   enemyManager:update(dt)
   turret:update(dt)
   for i, obj in ipairs(objectsToUpdate) do

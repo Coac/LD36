@@ -18,6 +18,10 @@ function Arrow:new(_x, _y, _speed, _angle)
 
   setmetatable(o, self)
   self.__index = self
+
+  table.insert(objectsToDraw, o)
+  table.insert(objectsToUpdate, o)
+
   return o
 end
 

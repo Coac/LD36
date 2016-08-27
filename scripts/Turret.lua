@@ -27,9 +27,7 @@ function Turret:update(dt)
   self.time = self.time + dt
   if self.time > 2 then
     self.time = 0
-    local arrow = Arrow:new(self.x, self.y, 300, self.angle)
-    table.insert(objectsToDraw, arrow)
-    table.insert(objectsToUpdate, arrow)
+    Arrow:new(self.x, self.y, 300, self.angle)
   end
 end
 
