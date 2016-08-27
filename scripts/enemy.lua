@@ -26,11 +26,12 @@ function Enemy:update(dt)
 
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
-    print("COLLISION")
+    print("Enemy Collision")
+    removeFromList(enemyManager.enemies, self)
   end
 end
 
 function Enemy:draw()
   lg.draw(self.sprite, self.x, self.y, self.angle, 1, 1, self.width/2, self.height/2)
-  -- self.coll:draw("fill")
+   --self.coll:draw("fill")
 end

@@ -28,7 +28,7 @@ end
 function Arrow:destroy()
   removeFromList(objectsToUpdate, self)
   removeFromList(objectsToDraw, self)
-  HC.remove(self.coll)
+  --HC.remove(self.coll)
 end
 
 function Arrow:update(dt)
@@ -37,7 +37,6 @@ function Arrow:update(dt)
 
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
-    print("COLLISION")
     self:destroy()
   end
 end

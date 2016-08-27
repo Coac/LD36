@@ -24,9 +24,9 @@ function Turret:update(dt)
   end
 
   self.time = self.time + dt
-  if self.time > 2 then
+  if self.time > 0.5 then
     self.time = 0
-    Arrow:new(self.x, self.y, 300, self.angle)
+    Arrow:new(self.x, self.y, 1000, self.angle)
   end
 end
 
