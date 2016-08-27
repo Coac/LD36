@@ -15,9 +15,13 @@ function Enemy:new(_sprite, _x, _y, _speedY,_angle)
   return o
 end
 
+function Enemy:update(dt)
+  self.x = self.x + self.speed * dt * math.cos(self.angle)
+  self.y = self.y + self.speed * dt * math.sin(self.angle)
+end
 
-function Enemy.load ()
-  local trainImage = love.graphics.newImage(imagesFolder .. 'enemy.png')
+function Enemy:draw()
+  lg.draw(self.sprite, self.x, self.y, self.angle);
 end
 
 return enemy
