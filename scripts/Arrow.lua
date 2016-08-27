@@ -1,10 +1,9 @@
-local lg = love.graphics
 require("scripts/globals")
 
 Arrow = {}
 
 function Arrow:new(_x, _y, _speed, _angle)
-  o = {
+  local o = {
     sprite = lg.newImage(imagesFolder .. "arrow.png"),
     x = _x,
     y = _y,

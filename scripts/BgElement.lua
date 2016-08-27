@@ -1,9 +1,7 @@
-local lg = love.graphics
-
 BgElement = {}
 
 function BgElement:new(_sprite, _x, _y, _speedY)
-  o = {
+  local o = {
     sprite = _sprite,
     x = _x,
     y = _y,

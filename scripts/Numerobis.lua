@@ -1,11 +1,9 @@
-local lg = love.graphics
-local lk = love.keyboard
 require("scripts/globals")
 
 Numerobis = {}
 
 function Numerobis:new(_x, _y, _speed)
-  o = {
+  local o = {
     sprite = lg.newImage(imagesFolder .. "numerobis.png"),
     x = _x,
     y = _y,
