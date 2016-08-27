@@ -5,14 +5,19 @@ require("scripts/Arrow")
 require("scripts/Train")
 require("scripts/EnemyManager")
 require("scripts/LifeBar")
+require("scripts/Turret")
+
 local CScreen = require("dependencies/CScreen")
 
+-- Global variables :
+-- enemyManager
 
 local background
 local numerobis
 local arrow
-local enemyManager
 local lifeBar
+local turret
+
 
 function love.load()
   lw.setTitle("LD36")
@@ -24,6 +29,7 @@ function love.load()
   arrow = Arrow:new(300, 300, 10, 2)
   train = Train:new()
   enemyManager = EnemyManager:new()
+  turret = Turret:new(lg.newImage(imagesFolder .. "enemy.png"), 600, 400, 10, 2, 2)
 
   lifeBar = LifeBar:new(100, 300, 20, 100, 20)
 end
@@ -37,6 +43,7 @@ function love.draw()
   train:draw()
   enemyManager:draw()
   lifeBar:draw()
+  turret:draw()
 
   CScreen.cease()
 end
@@ -51,6 +58,7 @@ function love.update(dt)
   numerobis:update(dt)
   arrow:update(dt)
   enemyManager:update(dt)
+  turret:update(dt)
 
   if lk.isDown("up") then
      lifeBar:takeDamage(1)
