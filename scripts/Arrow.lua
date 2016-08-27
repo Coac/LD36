@@ -21,6 +21,12 @@ function Arrow:new(_x, _y, _speed, _angle)
   return o
 end
 
+function Arrow:destroy()
+  removeFromList(objectsToUpdate, self)
+  removeFromList(objectsToDraw, self)
+  HC.remove(self.coll)
+end
+
 function Arrow:update(dt)
   self.x = self.x + self.speed * dt * math.cos(self.angle)
 	self.y = self.y + self.speed * dt * math.sin(self.angle)
@@ -28,6 +34,7 @@ function Arrow:update(dt)
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
     print("COLLISION")
+    self:destroy()
   end
 end
 

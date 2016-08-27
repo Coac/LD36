@@ -20,3 +20,15 @@ width_enemy = 100
 
 objectsToDraw = {}
 objectsToUpdate = {}
+
+
+function removeFromList(list, _obj)
+  local index
+  for i, obj in ipairs(list) do
+    if obj == _obj then
+      index = i
+      break
+    end
+  end
+  table.remove(list, index)
+end
