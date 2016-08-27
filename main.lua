@@ -37,7 +37,7 @@ function love.draw()
   train:draw()
   enemyManager:draw()
   lifeBar:draw()
-  
+
   CScreen.cease()
 end
 
