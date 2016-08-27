@@ -3,7 +3,7 @@ require("scripts/globals")
 Train = {}
 
 function Train:new ()
-  spritee = lg.newImage(imagesFolder .. "train.png");
+  spritee = lg.newImage(imagesFolder .. "charriot.png");
   o = {
     sprite = spritee,
     x = width_window / 2,

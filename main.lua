@@ -5,6 +5,7 @@ require("scripts/Arrow")
 require("scripts/Train")
 require("scripts/EnemyManager")
 require("scripts/LifeBar")
+local CScreen = require("dependencies/CScreen")
 
 
 local background
@@ -15,7 +16,8 @@ local lifeBar
 
 function love.load()
   lw.setTitle("LD36")
-  lw.setMode(width_window, height_window, {centered=true})
+  lw.setMode(width_window, height_window, {resizable=true, vsync=false, minwidth=400, minheight=300})
+  CScreen.init(width_window, height_window, true)
 
   background = Background:new()
   numerobis = Numerobis:new(100, 100, 300)
@@ -27,12 +29,20 @@ function love.load()
 end
 
 function love.draw()
+  CScreen.apply()
+
   background:draw()
   numerobis:draw()
   arrow:draw()
   train:draw()
   enemyManager:draw()
   lifeBar:draw()
+  
+  CScreen.cease()
+end
+
+function love.resize(width, height)
+    CScreen.update(width, height)
 end
 
 
