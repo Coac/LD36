@@ -6,7 +6,11 @@ Background = {}
 function Background:new()
     bgImg = love.graphics.newImage("assets/images/test.png")
   o = {
-    bgEl1 = BgElement:new(bgImg, 0, 50, 50)
+    elems = {
+      BgElement:new(bgImg, 0, 50, 50),
+      BgElement:new(bgImg, 0, 100, 100)
+    }
+
    }
   setmetatable(o, self)
   self.__index = self
@@ -14,9 +18,13 @@ function Background:new()
 end
 
 function Background:update(dt)
-  self.bgEl1:update(dt)
+  for i = 1, table.getn(self.elems) do
+    self.elems[i]:update(dt)
+  end
 end
 
 function Background:draw()
-  self.bgEl1:draw()
+  for i = 1, table.getn(self.elems) do
+    self.elems[i]:draw()
+  end
 end
