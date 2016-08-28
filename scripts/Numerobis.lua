@@ -1,5 +1,7 @@
 require("scripts/Globals")
 require("scripts/Turret")
+require("scripts/ShotgunTurret")
+
 Numerobis = {}
 local numerobis
 
@@ -56,7 +58,10 @@ end
 
 function love.keypressed(key)
   if(key == "space") then
-    Turret:new(numerobis.x, numerobis.y)
+    if(money > 200) then
+      ShotgunTurret:new(numerobis.x, numerobis.y)
+      money = money - 200
+    end
   end
 end
 
