@@ -11,7 +11,7 @@ function Train:new ()
     width = sprite:getWidth(),
     height = sprite:getHeight(),
   }
-  o.coll = HC.rectangle(o.x, o.y, o.width + 150, o.height)
+  o.coll = HC.rectangle(o.x - o.width/2, o.y - o.height/2, o.width, o.height)
   o.coll.name = "Train"
 
   setmetatable(o, self)
@@ -32,4 +32,5 @@ end
 
 function Train:draw()
   lg.draw(self.sprite, self.x, self.y, 0, 1, 1, self.width/2, self.height/2);
+  self.coll:draw("line")
 end
