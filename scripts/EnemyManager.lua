@@ -8,11 +8,14 @@ function EnemyManager:new()
   enemyImage = lg.newImage(IMG_DIR .. "enemy.png")
   local o = {
     time = 0,
-    spawningRate = 1,
-    enemies = {
-      Enemy:new(enemyImage, 300, 300, 10, 2),
-      Enemy:new(enemyImage, 100, 100, 10, 2)
-    }
+    spawningRate = 0.5,
+    enemies = {},
+    wave = 1,
+    enemyCount = 0,
+    isWaiting = false,
+    rColor = 255,
+    gColor = 255,
+    bColor = 255
    }
   setmetatable(o, self)
   self.__index = self
@@ -44,18 +47,42 @@ function EnemyManager:update(dt)
     enemy:update(dt)
   end
 
-  self.spawningRate = self.spawningRate - dt / 10
+  if(self.isWaiting) then
+      if(table.getn(self.enemies) == 0) then
+        -- CHANGE WAVE
+        self.time = 0
+        self.isWaiting = false
+        self.wave = self.wave + 1
+        self.spawningRate = self.spawningRate - 0.1
+        self.rColor = math.random(0,255)
+        self.gColor = math.random(0,255)
+        self.bColor = math.random(0,255)
+      end
+  else
+    self.time = self.time + dt
+    if(self.time > self.spawningRate) then
+      self.time = 0
+      local halfWidth = WINDOW_W / 2
+      self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H), 200 + (100 * self.wave)))
 
-  self.time = self.time + dt
-  if(self.time > self.spawningRate) then
-    self.time = 0
-    local halfWidth = WINDOW_W / 2
-    self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H), 200))
+      self.enemyCount = self.enemyCount + 1
+      if(self.enemyCount > 10 * self.wave) then
+        self.enemyCount = 0
+        self.isWaiting = true
+      end
+
+    end
   end
 end
 
 function EnemyManager:draw()
+  lg.setColor(self.rColor, self.gColor, self.bColor)
   for i, enemy in ipairs(self.enemies) do
     enemy:draw()
   end
+  lg.setColor(255,255,255)
+
+  lg.print({{0,0,0,255},"Wave " .. self.wave} , WINDOW_W / 2 - 70, 600)
+
+
 end
