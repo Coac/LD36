@@ -54,5 +54,5 @@ end
 
 function Arrow:draw()
   lg.draw(self.sprite, self.x, self.y, self.angle, 1, 1, self.width/2, self.height/2)
-  self.coll:draw("fill")
+  -- self.coll:draw("fill")
 end

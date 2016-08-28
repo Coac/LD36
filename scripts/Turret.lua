@@ -2,18 +2,23 @@ require("scripts/Arrow")
 require("scripts/globals")
 Turret = {}
 
-function Turret:new(_sprite, _x, _y)
+local turretSprite = lg.newImage(imagesFolder .. "turret.png")
+function Turret:new(_x, _y)
   local o = {
-    sprite = _sprite,
+    sprite = turretSprite,
     x = _x,
     y = _y,
     angle = 0,
-    width = _sprite:getWidth(),
-    height = _sprite:getHeight(),
+    width = turretSprite:getWidth(),
+    height = turretSprite:getHeight(),
     time = 0
    }
   setmetatable(o, self)
   self.__index = self
+
+  table.insert(objectsToDraw, o)
+  table.insert(objectsToUpdate, o)
+
   return o
 end
 

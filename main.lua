@@ -15,8 +15,7 @@ local background
 local numerobis
 local arrow
 local lifeBar
-local turret
-local turret2
+
 
 
 function love.load()
@@ -29,8 +28,8 @@ function love.load()
   --arrow = Arrow:new(300, 300, 10, 2)
   train = Train:new()
   enemyManager = EnemyManager:new()
-  turret = Turret:new(lg.newImage(imagesFolder .. "turret.png"), 550, 400, 10, 2, 2)
-  turret2 = Turret:new(lg.newImage(imagesFolder .. "turret.png"), 700, 400, 10, 2, 2)
+  Turret:new(550, 400)
+  Turret:new(700, 400)
 
   lifeBar = LifeBar:new(100, 300, 20, 100, 20)
 end
@@ -42,8 +41,6 @@ function love.draw()
   train:draw()
   enemyManager:draw()
   lifeBar:draw()
-  turret:draw()
-  turret2:draw()
   for i, obj in ipairs(objectsToDraw) do
     obj:draw()
   end
@@ -61,8 +58,6 @@ function love.update(dt)
   background:update(dt)
   numerobis:update(dt)
   enemyManager:update(dt)
-  turret:update(dt)
-  turret2:update(dt)
   for i, obj in ipairs(objectsToUpdate) do
     obj:update(dt)
   end
