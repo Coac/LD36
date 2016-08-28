@@ -13,6 +13,8 @@ require("dependencies/generalMath")
 
 ASSETS_DIR = 'assets'
 IMG_DIR = ASSETS_DIR .. '/images/'
+IMG_DIR = ASSETS_DIR .. '/images/'
+ENEMIES_IMG_DIR = IMG_DIR .. 'enemies/'
 FONTS_DIR = ASSETS_DIR .. '/fonts/'
 
 WINDOW_W = 1280

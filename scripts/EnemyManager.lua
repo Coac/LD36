@@ -6,9 +6,7 @@ require("scripts/Globals")
 
 EnemyManager = {}
 
-local enemyImage
 function EnemyManager:new()
-  enemyImage = lg.newImage(IMG_DIR .. "enemy.png")
   local o = {
     time = 0,
     spawningRate = 0.5,

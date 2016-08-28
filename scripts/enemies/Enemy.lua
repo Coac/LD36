@@ -1,7 +1,7 @@
 require("scripts/Globals")
 
 Enemy = {}
-local enemyImage = lg.newImage(IMG_DIR .. "enemy.png")
+local enemyImage = lg.newImage(ENEMIES_IMG_DIR .. "enemy.png")
 
 function Enemy:new(_x, _y)
   local o = {
