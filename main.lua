@@ -10,11 +10,10 @@ local CScreen = require("dependencies/CScreen")
 
 -- Global variables :
 -- enemyManager
-
+-- lifeBar
 local background
 local numerobis
 local arrow
-local lifeBar
 
 function love.load()
   lw.setTitle("LD36")
@@ -24,13 +23,13 @@ function love.load()
   lg.setNewFont(FONTS_DIR .."Myth.ttf", 40)
 
   background = Background:new()
-  numerobis = Numerobis:new(100, 100, 300)
+  numerobis = Numerobis:new(WINDOW_W / 2, WINDOW_H / 2, 300)
   train = Train:new()
   enemyManager = EnemyManager:new()
   Turret:new(550, 400)
   Turret:new(700, 400)
 
-  lifeBar = LifeBar:new(100, 300, 20, 100, 20)
+  lifeBar = LifeBar:new(100, 300, 50, WINDOW_W / 2 - 300/2, 30)
 end
 
 function love.draw()
@@ -45,8 +44,8 @@ function love.draw()
   end
   numerobis:draw()
 
-  lg.print("Score : " .. score, 400, 30)
-  lg.print("Money : " .. money, 800, 30)
+  lg.print("Score : " .. score,  50, 30)
+  lg.print("Money : " .. money, 900, 30)
 
 
   CScreen.cease()
@@ -64,9 +63,4 @@ function love.update(dt)
   for i, obj in ipairs(objectsToUpdate) do
     obj:update(dt)
   end
-
-  if lk.isDown("up") then
-     lifeBar:takeDamage(1)
-  end
-
 end
