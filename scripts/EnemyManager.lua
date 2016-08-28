@@ -44,12 +44,11 @@ function EnemyManager:update(dt)
   end
 
   self.time = self.time + dt
-  if(self.time > 0.2) then
+  if(self.time > 0.05) then
     self.time = 0
     local halfWidth = width_window / 2
-    self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, height_window), 30))
+    self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, height_window), 100))
   end
-
 end
 
 function EnemyManager:draw()

@@ -14,6 +14,7 @@ function Enemy:new(_sprite, _x, _y, _speed)
     height = _sprite:getHeight()
    }
    o.coll:rotate(o.angle)
+   o.name = "Enemy"
 
    setmetatable(o, self)
    self.__index = self
@@ -26,8 +27,10 @@ function Enemy:update(dt)
 
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
-    print("Enemy Collision")
-    removeFromList(enemyManager.enemies, self)
+    if(shape.name ~= "Enemy") then
+      removeFromList(enemyManager.enemies, self)
+      HC.remove(self.coll)
+    end
   end
 end
 
