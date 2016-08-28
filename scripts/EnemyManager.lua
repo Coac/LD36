@@ -73,17 +73,18 @@ function EnemyManager:update(dt)
         self.bColor = math.random(0,255)
       end
   else
+    local currentWave = self.waves[self.wave]
     self.time = self.time + dt
-    if(self.time > self.waves[self.wave].spawningRate) then
+    if(self.time > currentWave.spawningRate) then
       self.time = 0
-      local possibleEnemies = self.waves[self.wave].possibleEnemies
+      local possibleEnemies = currentWave.possibleEnemies
       local pickedEnemy = possibleEnemies[math.random(1, table.getn(possibleEnemies))]
 
       local halfWidth = WINDOW_W / 2
       self:add(pickedEnemy:new(halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H)))
 
       self.enemyCount = self.enemyCount + 1
-      if(self.enemyCount > self.waves[self.wave].nbToPick) then
+      if(self.enemyCount > currentWave.nbToPick) then
         self.enemyCount = 0
         self.isWaiting = true
       end
