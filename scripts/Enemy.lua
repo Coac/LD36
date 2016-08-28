@@ -12,7 +12,8 @@ function Enemy:new(_sprite, _x, _y, _speed)
     coll = HC.rectangle(_x, _y, _sprite:getWidth(), _sprite:getHeight()),
     width = _sprite:getWidth(),
     height = _sprite:getHeight(),
-    isCollided = false
+    isCollided = false,
+    hp = 1
    }
    o.coll:rotate(o.angle)
    o.coll.name = "Enemy"
@@ -39,7 +40,13 @@ function Enemy:update(dt)
 
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
-    if(shape.name ~= "Enemy") then
+    if(shape.name == "Arrow") then
+      self.hp = self.hp - 1
+      if(self.hp < 1) then
+      self.isCollided = true
+      end
+    end
+    if(shape.name == "Train") then
       self.isCollided = true
     end
   end

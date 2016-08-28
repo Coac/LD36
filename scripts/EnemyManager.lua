@@ -1,4 +1,6 @@
 require("scripts/Enemy")
+require("scripts/Enemy2")
+
 require("scripts/Globals")
 
 EnemyManager = {}
@@ -63,7 +65,7 @@ function EnemyManager:update(dt)
     if(self.time > self.spawningRate) then
       self.time = 0
       local halfWidth = WINDOW_W / 2
-      self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H), 200 + (100 * self.wave)))
+      self:add(Enemy2:new(halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H), 200 + (100 * self.wave)))
 
       self.enemyCount = self.enemyCount + 1
       if(self.enemyCount > 10 * self.wave) then
