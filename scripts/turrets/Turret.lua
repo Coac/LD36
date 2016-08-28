@@ -1,6 +1,6 @@
 require("scripts/Arrow")
 require("scripts/Globals")
-Turret = {}
+Turret = { price = 200, name = "Turret" }
 
 Turret.selectedTurret = nil
 

@@ -28,7 +28,10 @@ function love.load()
   numerobis = Numerobis:new(WINDOW_W / 2, WINDOW_H / 2, 300)
   train = Train:new()
   enemyManager = EnemyManager:new()
-  menuTurret = MenuTurret:new()
+  menuTurret = MenuTurret:new({
+
+  })
+
   Turret:new(550, 400)
   Turret:new(700, 400)
 
