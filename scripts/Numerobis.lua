@@ -1,6 +1,6 @@
 require("scripts/Globals")
-require("scripts/Turret")
-require("scripts/ShotgunTurret")
+require("scripts/turrets/Turret")
+require("scripts/turrets/ShotgunTurret")
 
 Numerobis = {}
 local numerobis
