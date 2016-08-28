@@ -16,16 +16,15 @@ local numerobis
 local arrow
 local lifeBar
 
-
-
 function love.load()
   lw.setTitle("LD36")
   lw.setMode(WINDOW_W, WINDOW_H, {resizable=true, vsync=false, minwidth=400, minheight=300})
   CScreen.init(WINDOW_W, WINDOW_H, true)
 
+  lg.setNewFont(FONTS_DIR .."Myth.ttf", 40)
+
   background = Background:new()
   numerobis = Numerobis:new(100, 100, 300)
-  --arrow = Arrow:new(300, 300, 10, 2)
   train = Train:new()
   enemyManager = EnemyManager:new()
   Turret:new(550, 400)
@@ -44,8 +43,12 @@ function love.draw()
   for i, obj in ipairs(objectsToDraw) do
     obj:draw()
   end
-
   numerobis:draw()
+
+  lg.print("Score : " .. score .. "   Money : " .. money, 400, 30)
+
+
+
   CScreen.cease()
 end
 

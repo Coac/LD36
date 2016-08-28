@@ -13,8 +13,13 @@ require("dependencies/generalMath")
 
 ASSETS_DIR = 'assets'
 IMG_DIR = ASSETS_DIR .. '/images/'
+FONTS_DIR = ASSETS_DIR .. '/fonts/'
+
 WINDOW_W = 1280
 WINDOW_H = 720
+
+score = 0
+money = 0
 
 objectsToDraw = {}
 objectsToUpdate = {}
