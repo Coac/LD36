@@ -4,7 +4,7 @@ Numerobis = {}
 local numerobis
 function Numerobis:new(_x, _y, _speed)
   local o = {
-    sprite = lg.newImage(imagesFolder .. "numerobis.png"),
+    sprite = lg.newImage(IMG_DIR .. "numerobis.png"),
     x = _x,
     y = _y,
     speed =  _speed

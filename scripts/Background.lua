@@ -4,7 +4,7 @@ require("scripts/globals")
 Background = {}
 
 function Background:new()
-  bgImg = lg.newImage(imagesFolder .. "background.png")
+  bgImg = lg.newImage(IMG_DIR .. "background.png")
   o = {
     elems = {
       BgElement:new(bgImg, 0, 0, 0),

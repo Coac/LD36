@@ -20,8 +20,8 @@ local lifeBar
 
 function love.load()
   lw.setTitle("LD36")
-  lw.setMode(width_window, height_window, {resizable=true, vsync=false, minwidth=400, minheight=300})
-  CScreen.init(width_window, height_window, true)
+  lw.setMode(WINDOW_W, WINDOW_H, {resizable=true, vsync=false, minwidth=400, minheight=300})
+  CScreen.init(WINDOW_W, WINDOW_H, true)
 
   background = Background:new()
   numerobis = Numerobis:new(100, 100, 300)

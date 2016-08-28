@@ -8,7 +8,7 @@ function Enemy:new(_sprite, _x, _y, _speed)
     x = _x,
     y = _y,
     speed =  _speed,
-    angle =  math.angle(_x, _y, width_window/2, height_window/2),
+    angle =  math.angle(_x, _y, WINDOW_W/2, WINDOW_H/2),
     coll = HC.rectangle(_x, _y, _sprite:getWidth(), _sprite:getHeight()),
     width = _sprite:getWidth(),
     height = _sprite:getHeight()

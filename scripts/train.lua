@@ -3,11 +3,11 @@ require("scripts/globals")
 Train = {}
 
 function Train:new ()
-  spritee = lg.newImage(imagesFolder .. "charriot.png");
+  spritee = lg.newImage(IMG_DIR .. "charriot.png");
   o = {
     sprite = spritee,
-    x = width_window / 2,
-    y = height_window / 2,
+    x = WINDOW_W / 2,
+    y = WINDOW_H / 2,
     width = spritee:getWidth(),
     height = spritee:getHeight()
   }

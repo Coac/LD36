@@ -5,7 +5,7 @@ EnemyManager = {}
 
 local enemyImage
 function EnemyManager:new()
-  enemyImage = lg.newImage(imagesFolder .. "enemy.png")
+  enemyImage = lg.newImage(IMG_DIR .. "enemy.png")
   local o = {
     time = 0,
     enemies = {
@@ -46,8 +46,8 @@ function EnemyManager:update(dt)
   self.time = self.time + dt
   if(self.time > 0.03) then
     self.time = 0
-    local halfWidth = width_window / 2
-    self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, height_window), 200))
+    local halfWidth = WINDOW_W / 2
+    self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H), 200))
   end
 end
 

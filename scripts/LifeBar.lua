@@ -26,7 +26,7 @@ end
 
 function LifeBar:draw()
   if(self.health == 0) then
-    love.graphics.print("GAME OVER", 400, 300)
+    lg.print("GAME OVER", 400, 300)
   else
     lg.rectangle("fill", self.posX, self.posY, self.sizeX * self.health/self.maxHealth, self.sizeY)
   end

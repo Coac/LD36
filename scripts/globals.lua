@@ -11,12 +11,10 @@ lw = love.window
 HC = require("dependencies/HardonCollider")
 require("dependencies/generalMath")
 
-assetsFolder = 'assets'
-imagesFolder = assetsFolder .. '/images/'
-width_window = 1280
-height_window = 720
-height_enemy = 100
-width_enemy = 100
+ASSETS_DIR = 'assets'
+IMG_DIR = ASSETS_DIR .. '/images/'
+WINDOW_W = 1280
+WINDOW_H = 720
 
 objectsToDraw = {}
 objectsToUpdate = {}

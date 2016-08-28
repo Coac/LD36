@@ -3,7 +3,7 @@ require("scripts/globals")
 Arrow = {}
 
 function Arrow:new(_x, _y, _speed, _angle)
-    _sprite = lg.newImage(imagesFolder .. "arrow.png")
+    _sprite = lg.newImage(IMG_DIR .. "arrow.png")
     local o = {
     sprite = _sprite,
     x = _x,

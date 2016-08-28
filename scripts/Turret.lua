@@ -2,7 +2,7 @@ require("scripts/Arrow")
 require("scripts/globals")
 Turret = {}
 
-local turretSprite = lg.newImage(imagesFolder .. "turret.png")
+local turretSprite = lg.newImage(IMG_DIR .. "turret.png")
 function Turret:new(_x, _y)
   local o = {
     sprite = turretSprite,
