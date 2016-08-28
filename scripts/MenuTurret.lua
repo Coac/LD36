@@ -28,7 +28,7 @@ function MenuTurret:draw()
       self.y - ((table.getn(self.turrets) - i) * self.height),
       self.width,
       self.height)
-    lg.print(turret, self.x, self.y)
+    lg.print(turret.name, self.x, self.y - ((table.getn(self.turrets) - i) * self.height))
   end
 end
 
@@ -38,8 +38,8 @@ function love.keypressed(key)
   end
   if not menuTurret.drawn then return end
   if key == "kp1" then
-    menuTurret.turrets[1].class:new(numerobis.x, numerobis.y)
+    menuTurret.turrets[1]:new(numerobis.x, numerobis.y)
   elseif key == "kp2" then
-    menuTurret.turrets[2].class:new(numerobis.x, numerobis.y)
+    menuTurret.turrets[2]:new(numerobis.x, numerobis.y)
   end
 end
