@@ -4,8 +4,8 @@ require("scripts/Numerobis")
 require("scripts/Train")
 require("scripts/EnemyManager")
 require("scripts/LifeBar")
-require("scripts/Turret")
 require("scripts/MenuTurret")
+require("scripts/turrets/Turret")
 
 local CScreen = require("dependencies/CScreen")
 
@@ -29,6 +29,7 @@ function love.load()
   numerobis = Numerobis:new(WINDOW_W / 2, WINDOW_H / 2, 300)
   train = Train:new()
   enemyManager = EnemyManager:new()
+  menuTurret = MenuTurret:new()
   Turret:new(550, 400)
   Turret:new(700, 400)
 

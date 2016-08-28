@@ -1,4 +1,7 @@
-require("scripts/Enemy")
+require("scripts/enemies/Enemy")
+require("scripts/enemies/Enemy2")
+require("scripts/Wave")
+
 require("scripts/Globals")
 
 EnemyManager = {}
@@ -15,8 +18,18 @@ function EnemyManager:new()
     isWaiting = false,
     rColor = 255,
     gColor = 255,
-    bColor = 255
+    bColor = 255,
+    waves = {}
    }
+
+   table.insert(o.waves, Wave:new({Enemy}, 10))
+   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
+   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
+   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
+   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
+   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 9999999999))
+
+
   setmetatable(o, self)
   self.__index = self
   return o
@@ -62,11 +75,14 @@ function EnemyManager:update(dt)
     self.time = self.time + dt
     if(self.time > self.spawningRate) then
       self.time = 0
+      local possibleEnemies = self.waves[self.wave].possibleEnemies
+      local pickedEnemy = possibleEnemies[math.random(1, table.getn(possibleEnemies))]
+
       local halfWidth = WINDOW_W / 2
-      self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H), 200 + (100 * self.wave)))
+      self:add(pickedEnemy:new(halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H)))
 
       self.enemyCount = self.enemyCount + 1
-      if(self.enemyCount > 10 * self.wave) then
+      if(self.enemyCount > self.waves[self.wave].nbToPick) then
         self.enemyCount = 0
         self.isWaiting = true
       end

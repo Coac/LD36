@@ -1,4 +1,4 @@
-require("scripts/Turret")
+require("scripts/turrets/Turret")
 require("scripts/Globals")
 
 ShotgunTurret = Turret:new(-999,-999)
