@@ -31,9 +31,6 @@ function Enemy:update(dt)
       removeFromList(enemyManager.enemies, self)
       HC.remove(self.coll)
     end
-    if(shape.name == "Numerobis") then
-      lifeBar:takeDamage(10)
-    end
   end
 end
 

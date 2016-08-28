@@ -60,6 +60,7 @@ function love.update(dt)
   background:update(dt)
   numerobis:update(dt)
   enemyManager:update(dt)
+  train:update(dt)
   for i, obj in ipairs(objectsToUpdate) do
     obj:update(dt)
   end
