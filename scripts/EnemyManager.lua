@@ -1,5 +1,9 @@
 require("scripts/enemies/Enemy")
 require("scripts/enemies/Enemy2")
+require("scripts/enemies/Enemy3")
+require("scripts/enemies/Enemy4")
+require("scripts/enemies/Enemy5")
+
 require("scripts/Wave")
 
 require("scripts/Globals")
@@ -20,12 +24,12 @@ function EnemyManager:new()
     waves = {}
    }
 
-   table.insert(o.waves, Wave:new({Enemy}, 10))
-   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
-   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
-   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
-   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 10))
-   table.insert(o.waves, Wave:new({Enemy2, Enemy}, 9999999999))
+   table.insert(o.waves, Wave:new({Enemy}, 10, 0.5))
+   table.insert(o.waves, Wave:new({Enemy, Enemy2}, 10, 0.5))
+   table.insert(o.waves, Wave:new({Enemy2, Enemy3}, 10, 0.4))
+   table.insert(o.waves, Wave:new({Enemy3, Enemy4}, 10, 0.3))
+   table.insert(o.waves, Wave:new({Enemy4}, 10, 0.3))
+   table.insert(o.waves, Wave:new({Enemy5}, 9999999999, 0.2))
 
 
   setmetatable(o, self)
@@ -64,14 +68,13 @@ function EnemyManager:update(dt)
         self.time = 0
         self.isWaiting = false
         self.wave = self.wave + 1
-        self.spawningRate = self.spawningRate - 0.1
         self.rColor = math.random(0,255)
         self.gColor = math.random(0,255)
         self.bColor = math.random(0,255)
       end
   else
     self.time = self.time + dt
-    if(self.time > self.spawningRate) then
+    if(self.time > self.waves[self.wave].spawningRate) then
       self.time = 0
       local possibleEnemies = self.waves[self.wave].possibleEnemies
       local pickedEnemy = possibleEnemies[math.random(1, table.getn(possibleEnemies))]
