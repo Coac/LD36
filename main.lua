@@ -14,6 +14,7 @@ local CScreen = require("dependencies/CScreen")
 local background
 local numerobis
 local arrow
+local bgUI
 
 function love.load()
   lw.setTitle("LD36")
@@ -21,6 +22,7 @@ function love.load()
   CScreen.init(WINDOW_W, WINDOW_H, true)
 
   lg.setNewFont(FONTS_DIR .."Myth.ttf", 40)
+  bgUI = lg.newImage(IMG_DIR .. "bgUIingame.png")
 
   background = Background:new()
   numerobis = Numerobis:new(WINDOW_W / 2, WINDOW_H / 2, 300)
@@ -43,6 +45,7 @@ function love.draw()
   end
   numerobis:draw()
 
+  lg.draw(bgUI, WINDOW_W/2, 0, 0, 1, 1, bgUI:getWidth()/2, 0)
   lifeBar:draw()
   lg.print({{0,0,0,255}, "Score : " .. score},  50, 30)
   lg.print({{0,0,0,255}, "Money : " .. money}, 900, 30)
