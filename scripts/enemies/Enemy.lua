@@ -14,9 +14,12 @@ function Enemy:new(_x, _y)
     width = _sprite:getWidth(),
     height = _sprite:getHeight(),
     isCollided = false,
-    hp = 1
+    hp = 1,
+    scaleX = 1
    }
-   o.coll:rotate(o.angle)
+   if o.x > WINDOW_W /2 then
+     o.scaleX = -1
+   end
    o.coll.name = "Enemy"
 
    setmetatable(o, self)
@@ -59,6 +62,6 @@ function Enemy:update(dt)
 end
 
 function Enemy:draw()
-  lg.draw(self.sprite, self.x, self.y, self.angle, 1, 1, self.width/2, self.height/2)
+  lg.draw(self.sprite, self.x, self.y, 0, self.scaleX, 1, self.width/2, self.height/2)
    --self.coll:draw("fill")
 end
