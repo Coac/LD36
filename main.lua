@@ -5,6 +5,7 @@ require("scripts/Train")
 require("scripts/EnemyManager")
 require("scripts/LifeBar")
 require("scripts/Turret")
+require("scripts/MenuTurret")
 
 local CScreen = require("dependencies/CScreen")
 
