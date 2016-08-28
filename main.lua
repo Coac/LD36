@@ -13,7 +13,6 @@ local CScreen = require("dependencies/CScreen")
 -- enemyManager
 -- lifeBar
 local background
-local numerobis
 local arrow
 local bgUI
 

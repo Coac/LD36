@@ -2,6 +2,8 @@ require("scripts/Arrow")
 require("scripts/Globals")
 Turret = {}
 
+Turret.selectedTurret = nil
+
 local turretSprite = lg.newImage(IMG_DIR .. "turret.png")
 function Turret:new(_x, _y)
   local o = {
@@ -11,7 +13,7 @@ function Turret:new(_x, _y)
     angle = 0,
     width = turretSprite:getWidth(),
     height = turretSprite:getHeight(),
-    coll = HC.rectangle(_x, _y, turretSprite:getWidth() * 0.5, turretSprite:getHeight() * 0.5),
+    coll = HC.rectangle(_x - turretSprite:getWidth()/4, _y - turretSprite:getHeight()/4, turretSprite:getWidth() * 0.5, turretSprite:getHeight() * 0.5),
     time = 0,
     isSelected = false
    }
@@ -42,12 +44,8 @@ function Turret:update(dt)
     self:fire()
   end
 
-  self.isSelected = false
-  for shape, delta in pairs(HC.collisions(self.coll)) do
-    if(shape.name == "Numerobis") then
-      self.isSelected = true
-    end
-  end
+  self.isSelected = numerobis.turretSelectedShape == self.coll
+
 end
 
 function Turret:draw()
@@ -55,4 +53,5 @@ function Turret:draw()
   if(self.isSelected) then
     lg.rectangle("line", self.x - self.width/2, self.y - self.height/2, self.width, self.height)
   end
+  self.coll:draw("line")
 end

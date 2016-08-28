@@ -3,7 +3,6 @@ require("scripts/turrets/Turret")
 require("scripts/turrets/ShotgunTurret")
 
 Numerobis = {}
-local numerobis
 
 local numerbisSprite = lg.newImage(IMG_DIR .. "numerobis.png")
 function Numerobis:new(_x, _y, _speed)
@@ -15,11 +14,11 @@ function Numerobis:new(_x, _y, _speed)
     width = numerbisSprite:getWidth(),
     height = numerbisSprite:getHeight(),
     coll = HC.rectangle(_x, _y, numerbisSprite:getWidth(), numerbisSprite:getHeight()),
+    turretSelectedShape = nil
    }
   o.coll.name = "Numerobis"
   setmetatable(o, self)
   self.__index = self
-  numerobis = o
   return o
 end
 
@@ -54,11 +53,19 @@ function Numerobis:update(dt)
   end
   self.coll:moveTo(self.x, self.y)
 
+  self.turretSelectedShape = nil
+  for shape, delta in pairs(HC.collisions(self.coll)) do
+    if(shape.name == "Turret") then
+      self.turretSelectedShape = shape
+    end
+  end
+
+
 end
 
 function love.keypressed(key)
   if(key == "space") then
-    if(money > 200) then
+    if(not numerobis.turretSelectedShape and money > 200) then
       ShotgunTurret:new(numerobis.x, numerobis.y)
       money = money - 200
     end
