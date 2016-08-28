@@ -1,5 +1,5 @@
-require("scripts/Enemy")
-require("scripts/Enemy2")
+require("scripts/enemies/Enemy")
+require("scripts/enemies/Enemy2")
 require("scripts/Wave")
 
 require("scripts/Globals")

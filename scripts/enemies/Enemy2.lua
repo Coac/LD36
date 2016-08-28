@@ -1,5 +1,5 @@
 require("scripts/Globals")
-require("scripts/Enemy")
+require("scripts/enemies/Enemy")
 
 Enemy2 = {}
 

@@ -4,7 +4,7 @@ require("scripts/Numerobis")
 require("scripts/Train")
 require("scripts/EnemyManager")
 require("scripts/LifeBar")
-require("scripts/Turret")
+require("scripts/turrets/Turret")
 
 local CScreen = require("dependencies/CScreen")
 
