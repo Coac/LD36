@@ -32,5 +32,5 @@ end
 
 function Train:draw()
   lg.draw(self.sprite, self.x, self.y, 0, 1, 1, self.width/2, self.height/2);
-  self.coll:draw("line")
+  -- self.coll:draw("line")
 end
