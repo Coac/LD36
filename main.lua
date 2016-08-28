@@ -44,8 +44,8 @@ function love.draw()
   numerobis:draw()
 
   lifeBar:draw()
-  lg.print("Score : " .. score,  50, 30)
-  lg.print("Money : " .. money, 900, 30)
+  lg.print({{0,0,0,255}, "Score : " .. score},  50, 30)
+  lg.print({{0,0,0,255}, "Money : " .. money}, 900, 30)
 
 
   CScreen.cease()
