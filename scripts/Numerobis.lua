@@ -38,6 +38,18 @@ function Numerobis:update(dt)
      self.y = self.y - (self.speed * dt)
   end
 
+  if(self.y > WINDOW_H) then
+    self.y = WINDOW_H
+  end
+  if(self.y < 0) then
+    self.y = 0
+  end
+  if(self.x > WINDOW_W) then
+    self.x = WINDOW_W
+  end
+  if(self.x < 0) then
+    self.x = 0
+  end
   self.coll:moveTo(self.x, self.y)
 
 end
