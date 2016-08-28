@@ -45,8 +45,8 @@ function love.draw()
   end
   numerobis:draw()
 
-  lg.print("Score : " .. score .. "   Money : " .. money, 400, 30)
-
+  lg.print("Score : " .. score, 400, 30)
+  lg.print("Money : " .. money, 800, 30)
 
 
   CScreen.cease()

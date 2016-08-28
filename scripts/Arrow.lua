@@ -46,6 +46,8 @@ function Arrow:update(dt)
   for shape, delta in pairs(HC.collisions(self.coll)) do
     if(shape.name == "Enemy") then
       self.isCollided = true
+      score = score + 100
+      money = money + 10
       return
     end
   end
