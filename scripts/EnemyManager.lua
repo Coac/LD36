@@ -8,6 +8,7 @@ function EnemyManager:new()
   enemyImage = lg.newImage(IMG_DIR .. "enemy.png")
   local o = {
     time = 0,
+    spawningRate = 1,
     enemies = {
       Enemy:new(enemyImage, 300, 300, 10, 2),
       Enemy:new(enemyImage, 100, 100, 10, 2)
@@ -43,8 +44,10 @@ function EnemyManager:update(dt)
     enemy:update(dt)
   end
 
+  self.spawningRate = self.spawningRate - dt / 10
+
   self.time = self.time + dt
-  if(self.time > 0.03) then
+  if(self.time > self.spawningRate) then
     self.time = 0
     local halfWidth = WINDOW_W / 2
     self:add(Enemy:new(enemyImage, halfWidth + math.rsign()*halfWidth, math.random(0, WINDOW_H), 200))
