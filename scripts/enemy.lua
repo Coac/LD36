@@ -1,4 +1,4 @@
-require("scripts/globals")
+require("scripts/Globals")
 
 Enemy = {}
 

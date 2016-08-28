@@ -1,4 +1,4 @@
-require("scripts/globals")
+require("scripts/Globals")
 
 Arrow = {}
 
@@ -35,7 +35,6 @@ end
 
 function Arrow:update(dt)
   if(self.isCollided) then
-    print("ok")
     self:destroy()
     return
   end

@@ -1,5 +1,5 @@
 require("scripts/Enemy")
-require("scripts/globals")
+require("scripts/Globals")
 
 EnemyManager = {}
 

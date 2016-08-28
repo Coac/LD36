@@ -1,5 +1,5 @@
 require("scripts/Arrow")
-require("scripts/globals")
+require("scripts/Globals")
 Turret = {}
 
 local turretSprite = lg.newImage(IMG_DIR .. "turret.png")

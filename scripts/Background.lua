@@ -1,5 +1,5 @@
 require("scripts/BgElement")
-require("scripts/globals")
+require("scripts/Globals")
 
 Background = {}
 

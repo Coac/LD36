@@ -1,4 +1,4 @@
-require("scripts/globals")
+require("scripts/Globals")
 require("scripts/Background")
 require("scripts/Numerobis")
 require("scripts/Train")
