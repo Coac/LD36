@@ -14,7 +14,7 @@ function Enemy:new(_sprite, _x, _y, _speed)
     height = _sprite:getHeight()
    }
    o.coll:rotate(o.angle)
-   o.name = "Enemy"
+   o.coll.name = "Enemy"
 
    setmetatable(o, self)
    self.__index = self

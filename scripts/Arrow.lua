@@ -44,7 +44,7 @@ function Arrow:update(dt)
 
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
-    if(shape.name ~= "Arrow") then
+    if(shape.name == "Enemy") then
       self.isCollided = true
       return
     end
