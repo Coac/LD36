@@ -1,13 +1,14 @@
 require("scripts/Globals")
 
 Enemy = {}
+local enemyImage = lg.newImage(IMG_DIR .. "enemy.png")
 
-function Enemy:new(_sprite, _x, _y, _speed)
+function Enemy:new(_x, _y)
   local o = {
-    sprite = _sprite,
+    sprite = enemyImage,
     x = _x,
     y = _y,
-    speed =  _speed,
+    speed =  300,
     angle =  math.angle(_x, _y, WINDOW_W/2, WINDOW_H/2),
     coll = HC.rectangle(_x, _y, _sprite:getWidth(), _sprite:getHeight()),
     width = _sprite:getWidth(),
@@ -29,15 +30,20 @@ function Enemy:destroy()
   HC.remove(self.coll)
 end
 
+
+-- Overridable
+function Enemy:move(dt)
+  self.x = self.x + self.speed * dt * math.cos(self.angle)
+  self.y = self.y + self.speed * dt * math.sin(self.angle)
+end
+
 function Enemy:update(dt)
   if(self.isCollided) then
     self:destroy()
     return
   end
 
-  self.x = self.x + self.speed * dt * math.cos(self.angle)
-  self.y = self.y + self.speed * dt * math.sin(self.angle)
-
+  self:move(dt)
   self.coll:moveTo(self.x, self.y)
   for shape, delta in pairs(HC.collisions(self.coll)) do
     if(shape.name == "Arrow") then
