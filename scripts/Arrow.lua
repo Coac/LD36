@@ -51,6 +51,11 @@ function Arrow:update(dt)
       return
     end
   end
+
+  if(self.x < 0 or self.x > WINDOW_W or self.y < 0 or self.y > WINDOW_H ) then
+    self.isCollided = true
+  end
+
 end
 
 function Arrow:draw()
