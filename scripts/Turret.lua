@@ -26,6 +26,10 @@ function Turret:new(_x, _y)
   return o
 end
 
+function Turret:fire()
+  Arrow:new(self.x, self.y, 1000, self.angle)
+end
+
 function Turret:update(dt)
   local enemy = enemyManager:getNearestEnemy(self.x, self.y)
   if enemy ~= nil then
@@ -35,13 +39,12 @@ function Turret:update(dt)
   self.time = self.time + dt
   if self.time > 0.2 then
     self.time = 0
-    Arrow:new(self.x, self.y, 1000, self.angle)
+    self:fire()
   end
 
   self.isSelected = false
   for shape, delta in pairs(HC.collisions(self.coll)) do
     if(shape.name == "Numerobis") then
-      print("Turret touching Numerobis")
       self.isSelected = true
     end
   end
