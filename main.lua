@@ -38,12 +38,12 @@ function love.draw()
   background:draw()
   train:draw()
   enemyManager:draw()
-  lifeBar:draw()
   for i, obj in ipairs(objectsToDraw) do
     obj:draw()
   end
   numerobis:draw()
 
+  lifeBar:draw()
   lg.print("Score : " .. score,  50, 30)
   lg.print("Money : " .. money, 900, 30)
 
