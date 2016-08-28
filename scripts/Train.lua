@@ -1,7 +1,7 @@
 require("scripts/globals")
 
 Train = {}
-
+local plantSprite = lg.newImage(IMG_DIR .. "plant.png");
 function Train:new ()
   sprite = lg.newImage(IMG_DIR .. "charriot.png");
   o = {
@@ -32,5 +32,17 @@ end
 
 function Train:draw()
   lg.draw(self.sprite, self.x, self.y, 0, 1, 1, self.width/2, self.height/2);
+
+  lg.draw(plantSprite, self.x, self.y, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+  lg.draw(plantSprite, self.x + 32, self.y, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+  lg.draw(plantSprite, self.x - 32, self.y, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+
+  lg.draw(plantSprite, self.x, self.y +32 , 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+  lg.draw(plantSprite, self.x + 32, self.y + 32, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+  lg.draw(plantSprite, self.x - 32, self.y + 32, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+
+  lg.draw(plantSprite, self.x, self.y - 32, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+  lg.draw(plantSprite, self.x + 32, self.y - 32, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
+  lg.draw(plantSprite, self.x - 32, self.y - 32, 0, 1, 1, plantSprite:getWidth()/2, plantSprite:getHeight()/2);
   -- self.coll:draw("line")
 end
