@@ -64,6 +64,8 @@ function Enemy:update(dt)
       self.hp = self.hp - 1
       if(self.hp < 1) then
       self.isCollided = true
+      score = score + 100
+      money = money + 10
       end
     end
     if(shape.name == "Train") then

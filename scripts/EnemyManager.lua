@@ -53,6 +53,10 @@ function EnemyManager:new()
    table.insert(o.waves, Wave:new({Enemy9, Enemy10}, 10, 0.3))
    table.insert(o.waves, Wave:new({Enemy10}, 10, 0.2))
    table.insert(o.waves, Wave:new({Enemy11}, 10, 0.3))
+   table.insert(o.waves, Wave:new({Enemy, Enemy2}, 10, 0.2))
+   table.insert(o.waves, Wave:new({Enemy2, Enemy3}, 10, 0.2))
+   table.insert(o.waves, Wave:new({Enemy, Enemy2, Enemy3}, 10, 0.1))
+   table.insert(o.waves, Wave:new({Enemy, Enemy2, Enemy3}, 10, 0.05))
    table.insert(o.waves, Wave:new({Enemy11}, 9999999999, 0.2))
 
 
