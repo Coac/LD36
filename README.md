@@ -11,7 +11,7 @@ git clone https://github.com/SuperCoac/LD36.git
 love LD36
 ```
 
-## Screenshoots
+## Screenshots
 ![screenMainmenu](/assets/images/menu.png)
 ![screenInGame](/assets/images/screen0.png)
 
