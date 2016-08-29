@@ -16,6 +16,17 @@ require("scripts/Globals")
 
 EnemyManager = {}
 
+
+local waveSounds = {
+  la.newSource(AUDIO_DIR .. "Wave1!.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Wave2!.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Wave3!.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Wave4!.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Wave5!.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Wave6!.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Wave7!.mp3", "static")
+}
+
 function EnemyManager:new()
   local o = {
     time = 0,
@@ -78,6 +89,9 @@ function EnemyManager:update(dt)
 
   if(self.isWaiting) then
       if(table.getn(self.enemies) == 0) then
+        self.time = self.time + dt
+        if(self.time < 2) then return end
+
         -- CHANGE WAVE
         self.time = 0
         self.isWaiting = false
@@ -85,6 +99,7 @@ function EnemyManager:update(dt)
         self.rColor = math.random(0,255)
         self.gColor = math.random(0,255)
         self.bColor = math.random(0,255)
+        la.play(waveSounds[math.random(1, table.getn(waveSounds))])
       end
   else
     local currentWave = self.waves[self.wave]
