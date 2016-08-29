@@ -51,10 +51,12 @@ end
 function love.draw()
   CScreen.apply()
 
-  if(isMenu) then
+  if(isMenu and not isTransitionPlay) then
     lg.draw(backgroundMenu, 0, 0)
     if love.keyboard.isDown('space') then
        isTransitionPlay = true
+       local menuSound = la.newSource(AUDIO_DIR .. "Menu.mp3", "stream")
+       menuSound:play()
    end
   else
     background:draw()

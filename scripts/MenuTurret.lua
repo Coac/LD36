@@ -9,6 +9,7 @@ local turretSounds = {
   la.newSource(AUDIO_DIR .. "Build_Turret1.mp3", "static"),
   la.newSource(AUDIO_DIR .. "Build_Turret2.mp3", "static")
 }
+local noMoneySound = la.newSource(AUDIO_DIR .. "Money.mp3", "static")
 
 function MenuTurret:new()
   local o = {
@@ -65,6 +66,7 @@ function love.keypressed(key)
       la.play(turretSounds[1])
     else
       ShowMessage:new("Not enough money")
+      noMoneySound:play()
     end
   elseif key == "kp2" then
     if money > menuTurret.turrets[2].price then
@@ -73,6 +75,7 @@ function love.keypressed(key)
       la.play(turretSounds[2])
     else
       ShowMessage:new("Not enough money")
+      noMoneySound:play()
     end
   end
 end
