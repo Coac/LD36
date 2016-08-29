@@ -11,6 +11,11 @@ git clone https://github.com/SuperCoac/LD36.git
 love LD36
 ```
 
+## Screenshoots
+![screenMainmenu](/assets/images/menu.png)
+![screenInGame](/assets/images/screen0.png)
+
+
 ## Credits
 [Citizen2](https://github.com/GenjitsuGame)  
 [SuperCoac](https://github.com/SuperCoac)  
