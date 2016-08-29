@@ -8,7 +8,6 @@ function Background:new()
   o = {
     elems = {
       BgElement:new(bgImg, 0, 0, 0),
-      BgElement:new(bgImg, 0, 100, 100)
     }
 
    }

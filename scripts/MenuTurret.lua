@@ -56,7 +56,7 @@ function love.keypressed(key)
     menuTurret.drawn = not menuTurret.drawn
   end
   if not menuTurret.drawn then return end
-  if numerobis.turretSelectedShape then return end
+  -- if numerobis.turretSelectedShape then return end
   if key == "kp1" or key == "1" then
     if money > menuTurret.turrets[1].price then
       menuTurret.turrets[1]:new(numerobis.x, numerobis.y)

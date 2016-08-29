@@ -69,16 +69,6 @@ function Numerobis:update(dt)
   end
 end
 
-function love.keypressed(key)
-  if (key == "space") then
-    if (not numerobis.turretSelectedShape and money > 200) then
-      ShotgunTurret:new(numerobis.x, numerobis.y)
-      money = money - 200
-    end
-  end
-end
-
-
 function Numerobis:draw()
   lg.draw(self.sprite, self.x, self.y, 0, 1, 1, self.width / 2, self.height / 2);
 end

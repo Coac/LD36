@@ -50,8 +50,8 @@ end
 
 function Turret:draw()
   lg.draw(self.sprite, self.x, self.y, self.angle, 1, 1, self.width/2, self.height/2)
-  if(self.isSelected) then
-    lg.rectangle("line", self.x - self.width/2, self.y - self.height/2, self.width, self.height)
-  end
+  --if(self.isSelected) then
+  --  lg.rectangle("line", self.x - self.width/2, self.y - self.height/2, self.width, self.height)
+  --end
   -- self.coll:draw("line")
 end
