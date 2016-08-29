@@ -30,6 +30,9 @@ end
 
 function LifeBar:update()
   if self.health == 0 and gameOverMusic:isStopped() then
+    bgm:setLooping(false)
+    la.stop(bgm)
+    gameOverMusic:setVolume(0.8)
     la.play(gameOverMusic)
   end
 end

@@ -92,6 +92,7 @@ function love.update(dt)
       isMenu = false
       lg.setColor(255,255,255)
       la.play(bgm)
+      isTransitionPlay = false
     end
   end
   if(isMenu) then return end

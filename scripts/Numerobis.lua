@@ -10,12 +10,12 @@ function Numerobis:new(_x, _y, _speed)
     sprite = numerbisSprite,
     x = _x,
     y = _y,
-    speed =  _speed,
+    speed = _speed,
     width = numerbisSprite:getWidth(),
     height = numerbisSprite:getHeight(),
     coll = HC.rectangle(_x, _y, numerbisSprite:getWidth(), numerbisSprite:getHeight()),
     turretSelectedShape = nil
-   }
+  }
   o.coll.name = "Numerobis"
   setmetatable(o, self)
   self.__index = self
@@ -24,48 +24,54 @@ end
 
 function Numerobis:update(dt)
   if lk.isDown("right") then
-     self.x = self.x + (self.speed * dt)
+    if self.x < train.x + train.width - train.sprite:getWidth() / 2  - 50 then
+      self.x = self.x + (self.speed * dt)
+    end
   end
 
   if lk.isDown("left") then
-     self.x = self.x - (self.speed * dt)
+    if self.x > train.x - train.sprite:getWidth() / 2  + 50 then
+      self.x = self.x - (self.speed * dt)
+    end
   end
 
   if lk.isDown("down") then
-     self.y = self.y + (self.speed * dt)
+    if self.y < train.y + train.height  - train.sprite:getHeight() / 2  - 50 then
+      self.y = self.y + (self.speed * dt)
+    end
   end
 
   if lk.isDown("up") then
-     self.y = self.y - (self.speed * dt)
+    if self.y > train.y - train.sprite:getHeight() / 2 + 50 then
+      self.y = self.y - (self.speed * dt)
+    end
   end
 
-  if(self.y > WINDOW_H) then
+  if (self.y > WINDOW_H) then
     self.y = WINDOW_H
   end
-  if(self.y < 0) then
+  if (self.y < 0) then
     self.y = 0
   end
-  if(self.x > WINDOW_W) then
+  if (self.x > WINDOW_W) then
     self.x = WINDOW_W
   end
-  if(self.x < 0) then
+  if (self.x < 0) then
     self.x = 0
   end
   self.coll:moveTo(self.x, self.y)
 
   self.turretSelectedShape = nil
   for shape, delta in pairs(HC.collisions(self.coll)) do
-    if(shape.name == "Turret") then
+    if (shape.name == "Turret") then
       self.turretSelectedShape = shape
     end
   end
-
-
 end
 
 function love.keypressed(key)
-  if(key == "space") then
-    if(not numerobis.turretSelectedShape and money > 200) then
+  if (key == "space") then
+    if (not numerobis.turretSelectedShape and money > 200) then
       ShotgunTurret:new(numerobis.x, numerobis.y)
       money = money - 200
     end
@@ -74,5 +80,5 @@ end
 
 
 function Numerobis:draw()
-  lg.draw(self.sprite, self.x, self.y, 0, 1, 1, self.width/2, self.height/2);
+  lg.draw(self.sprite, self.x, self.y, 0, 1, 1, self.width / 2, self.height / 2);
 end
