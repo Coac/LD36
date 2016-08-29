@@ -1,4 +1,4 @@
-require("scripts/globals")
+require("scripts/Globals")
 
 Train = {}
 local plantSprite = lg.newImage(IMG_DIR .. "plant.png");
