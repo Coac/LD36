@@ -5,6 +5,11 @@ MenuTurret = {}
 
 local turretFont = lg.newFont(20)
 
+local turretSounds = {
+  la.newSource(AUDIO_DIR .. "Build_Turret1.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Build_Turret2.mp3", "static")
+}
+
 function MenuTurret:new()
   local o = {
     turrets = { Turret, ShotgunTurret },
@@ -57,6 +62,7 @@ function love.keypressed(key)
     if money > menuTurret.turrets[1].price then
       menuTurret.turrets[1]:new(numerobis.x, numerobis.y)
       money = money - menuTurret.turrets[1].price
+      la.play(turretSounds[1])
     else
       ShowMessage:new("Not enough money")
     end
@@ -64,6 +70,7 @@ function love.keypressed(key)
     if money > menuTurret.turrets[2].price then
       menuTurret.turrets[2]:new(numerobis.x, numerobis.y)
       money = money - menuTurret.turrets[2].price
+      la.play(turretSounds[2])
     else
       ShowMessage:new("Not enough money")
     end
