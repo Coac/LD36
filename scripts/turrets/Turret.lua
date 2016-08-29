@@ -53,5 +53,5 @@ function Turret:draw()
   if(self.isSelected) then
     lg.rectangle("line", self.x - self.width/2, self.y - self.height/2, self.width, self.height)
   end
-  self.coll:draw("line")
+  -- self.coll:draw("line")
 end
