@@ -2,6 +2,10 @@ require("scripts/Globals")
 
 LifeBar = {}
 
+
+local gameOverMusic = la.newSource(AUDIO_DIR .. "gameover.ogg", "static")
+gameOverMusic:setLooping(true)
+
 function LifeBar:new(_maxHealth, _sizeX, _sizeY, _posX, _posY)
   local o = {
     maxHealth = _maxHealth,
@@ -13,9 +17,17 @@ function LifeBar:new(_maxHealth, _sizeX, _sizeY, _posX, _posY)
    }
   setmetatable(o, self)
   self.__index = self
+
+  table.insert(objectsToUpdate, o)
   return o
 end
 
+
+function LifeBar:update()
+  if self.health == 0 and gameOverMusic:isStopped() then
+    la.play(gameOverMusic)
+  end
+end
 
 function LifeBar:takeDamage(damage)
   self.health = self.health - damage
