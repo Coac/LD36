@@ -59,10 +59,12 @@ function EnemyManager:getNearestEnemy(x, y)
   local returnEnemy = nil
   local minDist = 9999999999
   for i, enemy in ipairs(self.enemies) do
-    local dist = math.dist(x, y, enemy.x, enemy.y)
-    if dist < minDist then
-      minDist = dist
-      returnEnemy = enemy
+    if not enemy.isDead then
+      local dist = math.dist(x, y, enemy.x, enemy.y)
+      if dist < minDist then
+        minDist = dist
+        returnEnemy = enemy
+      end
     end
   end
 

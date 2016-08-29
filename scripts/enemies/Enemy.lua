@@ -15,7 +15,9 @@ function Enemy:new(_x, _y)
     height = enemyImage:getHeight(),
     isCollided = false,
     hp = 1,
-    scaleX = 1
+    scaleX = 1,
+    isDead = false,
+    opacity = 255
    }
    if o.x > WINDOW_W /2 then
      o.scaleX = -1
@@ -29,8 +31,8 @@ end
 
 
 function Enemy:destroy()
-  removeFromList(enemyManager.enemies, self)
   HC.remove(self.coll)
+  self.isDead = true
 end
 
 
@@ -41,8 +43,17 @@ function Enemy:move(dt)
 end
 
 function Enemy:update(dt)
-  if(self.isCollided) then
+
+  if(self.isCollided and not self.isDead) then
     self:destroy()
+    return
+  end
+
+  if(self.isDead) then
+    self.opacity = self.opacity - 600 * dt
+    if(self.opacity <= 0) then
+      removeFromList(enemyManager.enemies, self)
+    end
     return
   end
 
@@ -62,6 +73,9 @@ function Enemy:update(dt)
 end
 
 function Enemy:draw()
+  lg.setColor(255, 255, 255, self.opacity)
   lg.draw(self.sprite, self.x, self.y, 0, self.scaleX, 1, self.width/2, self.height/2)
+  lg.setColor(255, 255, 255)
+
    --self.coll:draw("fill")
 end
