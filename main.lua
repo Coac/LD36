@@ -43,7 +43,8 @@ function love.load()
 
   lifeBar = LifeBar:new(100, 300, 50, WINDOW_W / 2 - 300/2, 30)
 
-  bgm = la.newSource(AUDIO_DIR .. "themesong.ogg", "stream")
+  bgm = la.newSource(AUDIO_DIR .. "themesong.mp3", "stream")
+  bgm:setVolume(0.1)
   bgm:setLooping(true)
 end
 
