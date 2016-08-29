@@ -17,7 +17,7 @@ love LD36
 
 
 ## Credits
-[Citizen2](https://github.com/GenjitsuGame)  
+[GenjitsuGame](https://github.com/GenjitsuGame)
 [SuperCoac](https://github.com/SuperCoac)  
 [Maltiize](https://github.com/Maltiize)  
 [AfroNinja](https://github.com/Afroninjaaaaaaaa)
