@@ -23,7 +23,7 @@ local time = 0
 local colorTransition = 255
 
 function love.load()
-  lw.setTitle("LD36")
+  lw.setTitle("Super Numerobis Broccoli Defender - Babylon Edition X")
   lw.setMode(WINDOW_W, WINDOW_H, {resizable=true, vsync=false, minwidth=400, minheight=300})
   CScreen.init(WINDOW_W, WINDOW_H, true)
 
