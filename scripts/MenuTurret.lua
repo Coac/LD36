@@ -1,4 +1,5 @@
 require('scripts/globals')
+require('scripts/ShowMessage')
 
 MenuTurret = {}
 
@@ -52,11 +53,19 @@ function love.keypressed(key)
   end
   if not menuTurret.drawn then return end
   if numerobis.turretSelectedShape then return end
-  if key == "kp1" and money > menuTurret.turrets[1].price then
-    menuTurret.turrets[1]:new(numerobis.x, numerobis.y)
-    money = money - menuTurret.turrets[1].price
-  elseif key == "kp2" and money > menuTurret.turrets[2].price then
-    menuTurret.turrets[2]:new(numerobis.x, numerobis.y)
-    money = money - menuTurret.turrets[2].price
+  if key == "kp1" then
+    if money > menuTurret.turrets[1].price then
+      menuTurret.turrets[1]:new(numerobis.x, numerobis.y)
+      money = money - menuTurret.turrets[1].price
+    else
+      ShowMessage:new("Not enough money")
+    end
+  elseif key == "kp2" then
+    if money > menuTurret.turrets[2].price then
+      menuTurret.turrets[2]:new(numerobis.x, numerobis.y)
+      money = money - menuTurret.turrets[2].price
+    else
+      ShowMessage:new("Not enough money")
+    end
   end
 end

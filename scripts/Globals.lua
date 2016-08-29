@@ -27,6 +27,8 @@ objectsToDraw = {}
 objectsToUpdate = {}
 
 MYTH_FONT = lg.newFont(FONTS_DIR .."Myth.ttf", 40)
+MYTH_FONT_20 = lg.newFont(FONTS_DIR .."Myth.ttf", 20)
+
 
 function removeFromList(list, _obj)
   local index
