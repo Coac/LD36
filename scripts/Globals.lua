@@ -26,8 +26,9 @@ money = 0
 objectsToDraw = {}
 objectsToUpdate = {}
 
-MYTH_FONT = lg.newFont(FONTS_DIR .."Myth.ttf", 40)
-MYTH_FONT_20 = lg.newFont(FONTS_DIR .."Myth.ttf", 20)
+MYTH_FONT = lg.newFont(FONTS_DIR .."XXII ARABIAN-ONENIGHTSTAND.ttf", 60)
+MYTH_FONT_20 = lg.newFont(FONTS_DIR .."XXII ARABIAN-ONENIGHTSTAND.ttf", 40)
+MYTH_FONT_10 = lg.newFont(FONTS_DIR .."XXII ARABIAN-ONENIGHTSTAND.ttf", 25)
 
 
 function removeFromList(list, _obj)

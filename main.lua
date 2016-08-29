@@ -71,8 +71,8 @@ function love.draw()
 
     lg.draw(bgUI, WINDOW_W/2, 0, 0, 1, 1, bgUI:getWidth()/2, 0)
     lifeBar:draw()
-    lg.print({{0,0,0,255}, "Score : " .. score},  50, 30)
-    lg.print({{0,0,0,255}, "Money : " .. money}, 900, 30)
+    lg.print({{0,0,0,255}, "Score : " .. score},  50, 15)
+    lg.print({{0,0,0,255}, "Money : " .. money}, 900, 15)
   end
 
   CScreen.cease()
