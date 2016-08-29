@@ -14,12 +14,12 @@ local noMoneySound = la.newSource(AUDIO_DIR .. "Money.mp3", "static")
 function MenuTurret:new()
   local o = {
     turrets = { Turret, ShotgunTurret },
-    x = WINDOW_W - WINDOW_W / 4,
-    y = WINDOW_H - WINDOW_H / 3,
     width = WINDOW_W / 8 + 30,
     height = WINDOW_H / 7,
-    drawn = false
+    drawn = true
   }
+  o.y = WINDOW_H - o.height
+  o.x = WINDOW_W - o.width
 
   setmetatable(o, self)
   self.__index = self
