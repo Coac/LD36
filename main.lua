@@ -21,21 +21,23 @@ function love.load()
   lw.setMode(WINDOW_W, WINDOW_H, {resizable=true, vsync=false, minwidth=400, minheight=300})
   CScreen.init(WINDOW_W, WINDOW_H, true)
 
-  lg.setNewFont(FONTS_DIR .."Myth.ttf", 40)
+  lg.setFont(MYTH_FONT)
   bgUI = lg.newImage(IMG_DIR .. "bgUIingame.png")
 
   background = Background:new()
   numerobis = Numerobis:new(WINDOW_W / 2, WINDOW_H / 2, 300)
   train = Train:new()
   enemyManager = EnemyManager:new()
-  menuTurret = MenuTurret:new({
-
-  })
+  menuTurret = MenuTurret:new()
 
   Turret:new(550, 400)
   Turret:new(700, 400)
 
   lifeBar = LifeBar:new(100, 300, 50, WINDOW_W / 2 - 300/2, 30)
+
+  bgm = la.newSource(AUDIO_DIR .. "themesong.ogg", "stream")
+  bgm:setLooping(true)
+  la.play(bgm)
 end
 
 function love.draw()

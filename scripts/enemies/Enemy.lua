@@ -10,9 +10,9 @@ function Enemy:new(_x, _y)
     y = _y,
     speed =  300,
     angle =  math.angle(_x, _y, WINDOW_W/2, WINDOW_H/2),
-    coll = HC.rectangle(_x, _y, _sprite:getWidth(), _sprite:getHeight()),
-    width = _sprite:getWidth(),
-    height = _sprite:getHeight(),
+    coll = HC.rectangle(_x, _y, enemyImage:getWidth(), enemyImage:getHeight()),
+    width = enemyImage:getWidth(),
+    height = enemyImage:getHeight(),
     isCollided = false,
     hp = 1,
     scaleX = 1

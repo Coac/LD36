@@ -13,9 +13,9 @@ require("dependencies/generalMath")
 
 ASSETS_DIR = 'assets'
 IMG_DIR = ASSETS_DIR .. '/images/'
-IMG_DIR = ASSETS_DIR .. '/images/'
 ENEMIES_IMG_DIR = IMG_DIR .. 'enemies/'
 FONTS_DIR = ASSETS_DIR .. '/fonts/'
+AUDIO_DIR = ASSETS_DIR .. '/audio/'
 
 WINDOW_W = 1280
 WINDOW_H = 720
@@ -26,6 +26,7 @@ money = 0
 objectsToDraw = {}
 objectsToUpdate = {}
 
+MYTH_FONT = lg.newFont(FONTS_DIR .."Myth.ttf", 40)
 
 function removeFromList(list, _obj)
   local index

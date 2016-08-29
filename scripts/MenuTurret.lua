@@ -2,6 +2,8 @@ require('scripts/globals')
 
 MenuTurret = {}
 
+local turretFont = lg.newFont(20)
+
 function MenuTurret:new()
   local o = {
     turrets = { Turret, ShotgunTurret },
@@ -22,14 +24,18 @@ end
 
 function MenuTurret:draw()
   if not self.drawn then return end
+  lg.setFont(turretFont)
+  lg.setColor(75, 69, 1)
   for i, turret in ipairs(self.turrets) do
     lg.rectangle("line",
       self.x,
-      self.y - ((table.getn(self.turrets) - i) * self.height),
+      self.y - ((i - 1) * self.height),
       self.width,
       self.height)
-    lg.print(turret.name, self.x, self.y - ((table.getn(self.turrets) - i) * self.height))
+    lg.print(i .. ". " .. turret.name .. "\nPrice : " .. turret.price , self.x, self.y - ((i - 1) * self.height))
   end
+  lg.setFont(MYTH_FONT)
+  lg.setColor(255, 255, 255)
 end
 
 function love.keypressed(key)
