@@ -3,7 +3,7 @@ require("scripts/Globals")
 
 ShotgunTurret = Turret:new(-999,-999)
 
-ShotgunTurret.price = 300
+ShotgunTurret.price = 500
 ShotgunTurret.name = "ShotgunTurret"
 
 local turretSprite = lg.newImage(IMG_DIR .. "turret2.png")
