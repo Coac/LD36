@@ -3,8 +3,6 @@ require('scripts/ShowMessage')
 
 MenuTurret = {}
 
-local turretFont = lg.newFont(20)
-
 local turretSounds = {
   la.newSource(AUDIO_DIR .. "Build_Turret1.mp3", "static"),
   la.newSource(AUDIO_DIR .. "Build_Turret2.mp3", "static")
@@ -31,7 +29,7 @@ end
 
 function MenuTurret:draw()
   if not self.drawn then return end
-  lg.setFont(turretFont)
+  lg.setFont(MYTH_FONT_10)
   for i, turret in ipairs(self.turrets) do
     lg.setColor(255, 184, 118)
     lg.rectangle("fill",
