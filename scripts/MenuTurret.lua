@@ -59,7 +59,7 @@ function love.keypressed(key)
   end
   if not menuTurret.drawn then return end
   if numerobis.turretSelectedShape then return end
-  if key == "kp1" then
+  if key == "kp1" or key == "1" then
     if money > menuTurret.turrets[1].price then
       menuTurret.turrets[1]:new(numerobis.x, numerobis.y)
       money = money - menuTurret.turrets[1].price
@@ -68,7 +68,7 @@ function love.keypressed(key)
       ShowMessage:new("Not enough money")
       noMoneySound:play()
     end
-  elseif key == "kp2" then
+  elseif key == "kp2" or key == "2" then
     if money > menuTurret.turrets[2].price then
       menuTurret.turrets[2]:new(numerobis.x, numerobis.y)
       money = money - menuTurret.turrets[2].price
