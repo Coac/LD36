@@ -34,6 +34,7 @@ function LifeBar:update()
     la.stop(bgm)
     gameOverMusic:setVolume(0.8)
     la.play(gameOverMusic)
+    gameOver = true
   end
 end
 

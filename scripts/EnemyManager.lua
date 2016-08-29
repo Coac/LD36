@@ -94,6 +94,7 @@ function EnemyManager:getNearestEnemy(x, y)
 end
 
 function EnemyManager:update(dt)
+  if gameOver then return end
   for i, enemy in ipairs(self.enemies) do
     enemy:update(dt)
   end

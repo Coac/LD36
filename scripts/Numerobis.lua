@@ -23,6 +23,7 @@ function Numerobis:new(_x, _y, _speed)
 end
 
 function Numerobis:update(dt)
+  if gameOver then return end
   if lk.isDown("right") then
     if self.x < train.x + train.width - train.sprite:getWidth() / 2  - 50 then
       self.x = self.x + (self.speed * dt)

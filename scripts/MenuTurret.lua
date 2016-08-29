@@ -28,6 +28,7 @@ function MenuTurret:new()
 end
 
 function MenuTurret:draw()
+  if gameOver then return end
   if not self.drawn then return end
   lg.setFont(MYTH_FONT_10)
   for i, turret in ipairs(self.turrets) do

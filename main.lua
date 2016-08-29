@@ -21,6 +21,7 @@ local isMenu = true
 local isTransitionPlay = false
 local time = 0
 local colorTransition = 255
+gameOver = false
 
 function love.load()
   lw.setTitle("Super Numerobis Broccoli Defender - Babylon Edition X")

@@ -33,6 +33,7 @@ function Turret:fire()
 end
 
 function Turret:update(dt)
+  if gameOver then return end
   local enemy = enemyManager:getNearestEnemy(self.x, self.y)
   if enemy ~= nil then
     self.angle = math.atan2(enemy.y-self.y, enemy.x-self.x)
