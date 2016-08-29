@@ -9,7 +9,7 @@ function MenuTurret:new()
     turrets = { Turret, ShotgunTurret },
     x = WINDOW_W - WINDOW_W / 4,
     y = WINDOW_H - WINDOW_H / 3,
-    width = WINDOW_W / 8,
+    width = WINDOW_W / 8 + 30,
     height = WINDOW_H / 7,
     drawn = false
   }
@@ -25,14 +25,22 @@ end
 function MenuTurret:draw()
   if not self.drawn then return end
   lg.setFont(turretFont)
-  lg.setColor(75, 69, 1)
   for i, turret in ipairs(self.turrets) do
-    lg.rectangle("line",
+    lg.setColor(255, 184, 118)
+    lg.rectangle("fill",
       self.x,
       self.y - ((i - 1) * self.height),
       self.width,
       self.height)
-    lg.print(i .. ". " .. turret.name .. "\nPrice : " .. turret.price , self.x, self.y - ((i - 1) * self.height))
+      lg.setColor(255, 100, 118)
+      lg.rectangle("line",
+        self.x,
+        self.y - ((i - 1) * self.height),
+        self.width,
+        self.height)
+
+    lg.setColor(0, 0, 0)
+    lg.print(i .. ". " .. turret.name .. "\nPrice : " .. turret.price , self.x + 10, self.y - ((i - 1) * self.height) + 20)
   end
   lg.setFont(MYTH_FONT)
   lg.setColor(255, 255, 255)
