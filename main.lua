@@ -55,7 +55,7 @@ function love.draw()
     lg.draw(backgroundMenu, 0, 0)
     if love.keyboard.isDown('space') then
        if(not isTransitionPlay) then
-         local menuSound = la.newSource(AUDIO_DIR .. "Menu.mp3", "stream")
+         local menuSound = la.newSource(AUDIO_DIR .. "TitleScreen.mp3", "stream")
          menuSound:play()
        end
        isTransitionPlay = true
@@ -86,9 +86,9 @@ end
 function love.update(dt)
   if(isTransitionPlay) then
     time = time + dt
-    colorTransition = colorTransition - 500 * dt
+    colorTransition = colorTransition - 50 * dt
     lg.setColor(colorTransition,colorTransition,colorTransition)
-    if(time > 0.7) then
+    if(time > 7) then
       isMenu = false
       lg.setColor(255,255,255)
       la.play(bgm)

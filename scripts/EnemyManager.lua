@@ -24,7 +24,8 @@ local waveSounds = {
   la.newSource(AUDIO_DIR .. "Wave4!.mp3", "static"),
   la.newSource(AUDIO_DIR .. "Wave5!.mp3", "static"),
   la.newSource(AUDIO_DIR .. "Wave6!.mp3", "static"),
-  la.newSource(AUDIO_DIR .. "Wave7!.mp3", "static")
+  la.newSource(AUDIO_DIR .. "Wave7!.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Wave8!.mp3", "static")
 }
 
 function EnemyManager:new()
