@@ -106,7 +106,7 @@ function EnemyManager:update(dt)
 end
 
 function EnemyManager:draw()
-  lg.setColor(self.rColor, self.gColor, self.bColor)
+  -- lg.setColor(self.rColor, self.gColor, self.bColor)
   for i, enemy in ipairs(self.enemies) do
     enemy:draw()
   end
