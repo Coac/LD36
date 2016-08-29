@@ -39,7 +39,7 @@ function Turret:update(dt)
   end
 
   self.time = self.time + dt
-  if self.time > 0.2 then
+  if self.time > 0.5 then
     self.time = 0
     self:fire()
   end

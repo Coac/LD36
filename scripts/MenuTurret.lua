@@ -5,15 +5,21 @@ MenuTurret = {}
 
 local turretFont = lg.newFont(20)
 
+local turretSounds = {
+  la.newSource(AUDIO_DIR .. "Build_Turret1.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Build_Turret2.mp3", "static")
+}
+local noMoneySound = la.newSource(AUDIO_DIR .. "Money.mp3", "static")
+
 function MenuTurret:new()
   local o = {
     turrets = { Turret, ShotgunTurret },
-    x = WINDOW_W - WINDOW_W / 4,
-    y = WINDOW_H - WINDOW_H / 3,
     width = WINDOW_W / 8 + 30,
     height = WINDOW_H / 7,
-    drawn = false
+    drawn = true
   }
+  o.y = WINDOW_H - o.height
+  o.x = WINDOW_W - o.width
 
   setmetatable(o, self)
   self.__index = self
@@ -53,19 +59,23 @@ function love.keypressed(key)
   end
   if not menuTurret.drawn then return end
   if numerobis.turretSelectedShape then return end
-  if key == "kp1" then
+  if key == "kp1" or key == "1" then
     if money > menuTurret.turrets[1].price then
       menuTurret.turrets[1]:new(numerobis.x, numerobis.y)
       money = money - menuTurret.turrets[1].price
+      la.play(turretSounds[1])
     else
       ShowMessage:new("Not enough money")
+      noMoneySound:play()
     end
-  elseif key == "kp2" then
+  elseif key == "kp2" or key == "2" then
     if money > menuTurret.turrets[2].price then
       menuTurret.turrets[2]:new(numerobis.x, numerobis.y)
       money = money - menuTurret.turrets[2].price
+      la.play(turretSounds[2])
     else
       ShowMessage:new("Not enough money")
+      noMoneySound:play()
     end
   end
 end

@@ -4,6 +4,11 @@ LifeBar = {}
 
 
 local gameOverMusic = la.newSource(AUDIO_DIR .. "gameover.ogg", "static")
+local hitSounds = {
+  la.newSource(AUDIO_DIR .. "Hit1.mp3", "static"),
+  la.newSource(AUDIO_DIR .. "Hit2.mp3", "static")
+}
+
 gameOverMusic:setLooping(true)
 
 function LifeBar:new(_maxHealth, _sizeX, _sizeY, _posX, _posY)
@@ -33,6 +38,8 @@ function LifeBar:takeDamage(damage)
   self.health = self.health - damage
   if(self.health < 0) then
     self.health = 0
+  else
+    la.play(hitSounds[math.random(1, table.getn(hitSounds))])
   end
 end
 
