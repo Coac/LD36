@@ -7,7 +7,7 @@ require("scripts/LifeBar")
 require("scripts/MenuTurret")
 require("scripts/turrets/Turret")
 
-local CScreen = require("dependencies/CScreen")
+local CScreen = require("dependencies/cscreen")
 
 -- Global variables :
 -- enemyManager
