@@ -7,7 +7,7 @@ You incarn Numerobis who has the mission to transport some vegetables to *Hangin
 
 ## Installation
 ```
-git clone https://github.com/SuperCoac/LD36.git
+git clone https://github.com/Coac/LD36.git
 love LD36
 ```
 
@@ -18,6 +18,6 @@ love LD36
 
 ## Credits
 - [GenjitsuGame](https://github.com/GenjitsuGame)
-- [SuperCoac](https://github.com/SuperCoac)
+- [Coac](https://github.com/Coac)
 - [Maltiize](https://github.com/Maltiize)
 - [AfroNinja](https://github.com/Afroninjaaaaaaaa)
